@@ -32,7 +32,7 @@ async function handler(req, res) {
       return;
     }
 
-    const db = client.db();
+    const db = client.db(process.env.mongodb_database);
 
     try {
       const result = await db.collection('messages').insertOne(newMessage);
